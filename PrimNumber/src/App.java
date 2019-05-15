@@ -3,25 +3,23 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		
 		System.out.print("Prime numbers: ");
-		for(int num = 2; num <= 100; num++) {
+		
+		for(int i = 2; i <=100;i++) {
 			
 			boolean prime = false;
 			
-			for(int i = 2; i <= num/2; i++) {
+			for(int j = 2; j <= i/2; j++) {
 				
-				if(num % i == 0) {
+				if(i % j == 0) {
 					prime = true;
 					break;
-				}					
-				
+				}
 			}
 			
-			
-			if(!prime)
-				System.out.print(num + ", ");
-			
+			if(!prime) {
+				System.out.print(i + ", ");
+			}
 		}
 
 	}
