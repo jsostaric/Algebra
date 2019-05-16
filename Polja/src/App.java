@@ -37,9 +37,9 @@ public class App {
 		
 		//izraèun sume sekundarne dijagonale
 		suma = 0;
-		for(int i=0; i <5; i++) {
-			for(int j = 0; j < 5; j++) {
-				if(i+j == (5-1)) {
+		for(int i=0; i <polje.length; i++) {
+			for(int j = 0; j < polje.length; j++) {
+				if(i+j == (polje.length-1)) {
 					suma += polje[i][j];
 				}
 				
