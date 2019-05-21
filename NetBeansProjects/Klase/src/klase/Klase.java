@@ -1,6 +1,7 @@
 
 package klase;
 
+import java.awt.Color;
 
 
 public class Klase {
@@ -49,13 +50,26 @@ public class Klase {
          */
         
   
+        Prozor p1 = new Prozor("Prozor1", "Oznaka1", new Kordinate(10,60,10,60), new Boja(255,255,255), true);
         
-        
+       System.out.println("Width: " + p1.getWidth() + " Heigth: " + p1.getHeigth());
+       System.out.println("Area: " + p1.getArea() + " Perimeter: " + p1.getPerimeter());
        
+       Prozor p2 = new Prozor(); // instanciranje deafaultnog konstruktora
+       //p2.getDetails();
+       
+       Prozor p3 = new Prozor("Prozor3", new Kordinate(0,5,0,5), new Boja (25,25,25));
+       //p3.getDetails();
+       
+       p3.getDraw();
         
         
         
-    }
+      
+        
+        
+        
+    } //end of main
     
     private static int zbroji(int x, int y) {
         //return x + y
