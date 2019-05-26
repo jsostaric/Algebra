@@ -1,0 +1,11 @@
+package sucelja;
+
+public interface Pretvaranja {
+
+    public static final double CuK=273.15;
+    public static final double CuFFaktor=9.0/5.0;
+    
+    double celzijusiUKelvine(double stupnjevaCelzijusovih);
+    double celzijusiUFahreinheite(double stupnjevaCelzijusovih);   
+    
+}
