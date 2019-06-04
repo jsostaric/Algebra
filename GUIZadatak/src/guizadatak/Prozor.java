@@ -5,15 +5,21 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class Prozor extends JFrame implements ActionListener {
+public class Prozor extends JFrame {
+    
+    private ArrayList<String> brojevi;
+    private String operacija = "";
+    private boolean flag;
     
     JPanel panel1 = new JPanel(new BorderLayout());
     JPanel panel2 = new JPanel(new GridLayout(4,4));   
@@ -37,30 +43,114 @@ public class Prozor extends JFrame implements ActionListener {
     JButton oJednako = new JButton("=");
     JButton oCisti = new JButton("C");
     
-    JTextField tf = new JTextField("0");
+    JTextField textField = new JTextField("0");
     
     
     public Prozor(String naslov) {
         super(naslov);
-        b0.addActionListener(this);
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-        b4.addActionListener(this);
-        b5.addActionListener(this);
-        b6.addActionListener(this);
-        b7.addActionListener(this);
-        b8.addActionListener(this);
-        b9.addActionListener(this);
-        oPuta.addActionListener(this);
-        oPlus.addActionListener(this);
-        oPodijeljeno.addActionListener(this);
-        oJednako.addActionListener(this);
-        oCisti.addActionListener(this);
         
-        tf.setPreferredSize(new Dimension(200, 50));
+        brojevi = new ArrayList<>();
+        
+        b0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b0Action(e);
+            }
+        });        
+        b1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b1Action(e);
+            }
+        });
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b2Action(e);
+            }
+        });
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b3Action(e);
+            }
+        });
+        b4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b4Action(e);
+            }
+        });
+        b5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b5Action(e);
+            }
+        });
+        b6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b6Action(e);
+            }
+        });
+        b7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b7Action(e);
+            }
+        });
+        b8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b8Action(e);
+            }
+        });
+        b9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                b9Action(e);
+            }
+        });
+        oPuta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                multiplyAction(e);
+            }
+        });
+        oPlus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addAction(e);
+            }
+        });
+        oMinus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                retractAction(e);
+            }
+        });
+        oPodijeljeno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                divideAction(e);
+            }
+        });
+        oJednako.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                equalsAction(e);
+            }
+        });
+        oCisti.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearAction(e);
+            }
+        });
+        
+        textField.setPreferredSize(new Dimension(200, 50));
         panel1.setBorder(BorderFactory.createEmptyBorder(10,10,5,10));
-        panel1.add(tf);
+        panel1.add(textField);
         
         panel2.setBorder(BorderFactory.createEmptyBorder(5,10,5,5));
         panel2.add(b1);
@@ -90,8 +180,216 @@ public class Prozor extends JFrame implements ActionListener {
         
     }
     
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    
+    public void b0Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(!tf.equalsIgnoreCase("0")){          
+            tf = textField.getText();
+            tf +="0";
+            textField.setText(tf);
+        }
     }
+    
+    public void b1Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("1");
+        }else{
+            tf = textField.getText();
+            tf +="1";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b2Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("2");
+        }else{
+            tf = textField.getText();
+            tf +="2";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b3Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("3");
+        }else{
+            tf = textField.getText();
+            tf +="3";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b4Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("4");
+        }else{
+            tf = textField.getText();
+            tf +="4";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b5Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("5");
+        }else{
+            tf = textField.getText();
+            tf +="5";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b6Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("6");
+        }else{
+            tf = textField.getText();
+            tf +="6";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b7Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("7");
+        }else{
+            tf = textField.getText();
+            tf +="7";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b8Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("8");
+        }else{
+            tf = textField.getText();
+            tf +="8";
+            textField.setText(tf);
+        }
+    }
+    
+    public void b9Action(ActionEvent e) {
+        String tf = textField.getText();
+        if(tf.equalsIgnoreCase("0")){
+            textField.setText("9");
+        }else{
+            tf = textField.getText();
+            tf +="9";
+            textField.setText(tf);
+        }
+    }
+    
+    public void addAction(ActionEvent e) {
+        if(!flag){
+        String tf = textField.getText();
+       brojevi.add(tf);
+       textField.setText("0");
+       }else {
+           brojevi.add("0");
+           textField.setText("0");
+       }
+       operacija="+";
+    }
+    
+    public void retractAction(ActionEvent e) {
+       if(!flag){
+        String tf = textField.getText();
+       brojevi.add(tf);
+       textField.setText("0");
+       }else {
+           brojevi.add("0");
+           textField.setText("0");
+       }
+       operacija="-";
+    }
+    
+    public void multiplyAction(ActionEvent e) {
+       if(!flag){
+        String tf = textField.getText();
+       brojevi.add(tf);
+       textField.setText("0");
+       }else {
+           brojevi.add("0");
+           textField.setText("0");
+       }
+       operacija="*";
+    }
+    
+    public void divideAction(ActionEvent e) {
+       try {
+        if(!flag){
+        String tf = textField.getText();
+        brojevi.add(tf);
+        textField.setText("0");
+       }else {
+           brojevi.add("0");
+           textField.setText("0");
+       }
+       operacija="/";
+       }catch(Exception ex){
+           JOptionPane.showMessageDialog(this, "Can't divide by zero");
+       }
+    }
+    
+    public void equalsAction(ActionEvent e) {
+        flag=true;
+        String tf = textField.getText();
+       brojevi.add(tf);
+        if(operacija.equalsIgnoreCase("+")) {
+            int rezultat = 0;
+            for(int i=0;i<brojevi.size();i++) {
+                rezultat+=Integer.parseInt(brojevi.get(i));
+            }
+            brojevi.clear();
+            brojevi.add(String.valueOf(rezultat));
+            textField.setText(String.valueOf(rezultat));
+        }
+        
+        if(operacija.equalsIgnoreCase("-")) {
+            int rezultat = 0;
+            for(int i=0;i<brojevi.size();i++) {
+                rezultat-=Integer.parseInt(brojevi.get(i));
+            }
+            brojevi.clear();
+            brojevi.add(String.valueOf(rezultat));
+            textField.setText(String.valueOf(rezultat));
+        }
+        
+        if(operacija.equalsIgnoreCase("*")) {
+            int rezultat = 0;
+            for(int i=0;i<brojevi.size();i++) {
+                rezultat*=Integer.parseInt(brojevi.get(i));
+            }
+            brojevi.clear();
+            brojevi.add(String.valueOf(rezultat));
+            textField.setText(String.valueOf(rezultat));
+        }
+        
+        if(operacija.equalsIgnoreCase("/")) {
+            int rezultat = 0;
+            for(int i=0;i<brojevi.size();i++) {
+                rezultat/=Integer.parseInt(brojevi.get(i));
+            }
+            brojevi.clear();
+            brojevi.add(String.valueOf(rezultat));
+            textField.setText(String.valueOf(rezultat));
+        }
+    }
+    
+    public void clearAction(ActionEvent e) {
+        flag = false;
+        textField.setText("0");
+        brojevi.clear();
+    }
+    
 }
