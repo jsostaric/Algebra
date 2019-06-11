@@ -1,0 +1,26 @@
+h1, p, a {
+	color: red;	
+}
+
+p a:link {
+	font-size: 16px;
+	text-decoration: none;
+}
+
+a {
+	color: white;
+	font-weight: bold;
+	border: 1px solid #77a5ef;
+	background-color: #77a5ef;
+	padding: 5px 5px 5px 5px;
+	border-radius: 5px;
+}
+
+a:hover {
+	color: white;
+	background-color: blue ;
+}
+
+.tablica {
+	border: 1px solid black;
+}

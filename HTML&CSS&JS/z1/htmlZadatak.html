@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>HTMLZadatak</title>
+  </head>
+  <body>
+
+    <!-- Ovako to otprilike se može napraviti jednostavno sa bootstrapom.
+    nažalost loše sam uslikao zadatak pa ne vidim sve što točno mora biti gdje. AKO NETKO IMA BOLJU SLIKU MOLIO BIH
+    DA PODIJELI. HVALA -->
+    <div class="col-md-6 offset-3">
+      <div class="jumbotron">
+        <h1 align="right">Prodaja Automobila</h1>
+         <hr>
+        <form method="post" action="">
+         <h3>Korisnik</h3>
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="ime">Ime:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="ime" onkeyup="kopiraj()" id="ime" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="prezime">Prezime:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="prezime" id="prezime" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto">nesto:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="nesto" id="nesto" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto">nesto:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="nesto" id="nesto" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="email">Email:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="email" id="email" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto">nesto:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="radio" name="nesto" id="nesto" />nesto
+                <input type="radio" name="nesto" id="nesto" />nesto2
+            </div>
+         </div>
+          
+        <hr>
+        <h3>Automobil</h3>
+          
+        <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto">nesto:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="nesto" id="nesto" />              
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto">nesto:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="nesto" id="nesto" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto">nesto:</label>
+            </div>
+            <div class="col-md-2">
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+                <input type="date" name="nesto" id="nesto" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="nesto2">nesto:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="radio" name="nesto2" id="nesto2" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="sigurnosni_kod">Sigurnosni kod:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="password" name="sigurnosni_kod" id="sigurnosni_kod" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-2" align="right">            
+              <label for="kopija">Kopija:</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="kopija" id="kopija" />
+            </div>
+         </div>  
+          <hr>
+          <input type="submit" value="Izradi" />
+          <input type="submit" value="Izlaz" />
+        </form>
+      </div>
+    </div>  
+	
+	<script>
+		function kopiraj() {
+			var ime = document.getElementById('ime');
+			var kopija = document.getElementById('kopija');
+			kopija.value = ime.value;
+			var h1 = document.getElementsByTagName('h1');
+			h1[0].innerHTML = "Novi Naslov";			
+		}
+	</script>
+  </body>
+</html>
