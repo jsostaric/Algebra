@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            
+            <a href="PrikaziGradoveServlet" class="btn btn-secondary">Popis svih gradova</a>
+            <hr>
+            <form method="post" action="DodajGradServlet">
+                <fieldset>
+                    <legend>Dodavanje grada</legend>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="a">Ime grada:</label>
+                            <input type="text" name="grad" id="a" class="form-control" placeholder="Unesite ime grada" />
+                        </div>                       
+                    </div>                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="Dodaj" class="btn btn-primary btn-block">                           
+                        </div>
+                    </div>
+                </fieldset>            
+            </form>             
+        </div>
+    </body>
+</html>
