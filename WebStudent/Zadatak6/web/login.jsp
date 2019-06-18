@@ -40,7 +40,9 @@
                 </div>
             </form>
         </div>
-        
+                
+        <%@include file="partials/footer.jsp" %>        
+        <%@include file="partials/scripts.jsp" %>
     </body>
 </html>
 

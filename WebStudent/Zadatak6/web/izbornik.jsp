@@ -1,10 +1,11 @@
 <%@page import="java.util.List"%>
 <%@page import="modeli.Student"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="partials/head.jsp"  %>
+        <%@include file="partials/head.jsp" %>
     </head>
     <body>
         <h1>Studentska referada - podaci o studentima</h1>
@@ -52,26 +53,32 @@
                     <th>Action</th>
                 </tr>
 
-                <%
-                  List<Student> studenti;
-                    studenti = (List<Student>)session.getAttribute("studenti");
-                        if(studenti != null) {
-                        for(Student s : studenti) {
-                            out.print("<tr>");
-                            out.print("<td>"+s.getJmbag()+"</td>");
-                            out.print("<td>"+s.getIme()+"</td>");
-                            out.print("<td>"+s.getPrezime()+"</td>");
-                            out.print("<td>"+s.getGodina()+"</td>");                        
-                            out.print("<td><a href='UrediStudentaServlet?jmbag="+s.getJmbag()+"' class='btn btn-success btn-sm'>Uredi</a><a href='BrisiStudentaServlet?jmbag="+s.getJmbag()+"' class='btn btn-danger btn-sm'>Obriši</a></td>");                        
-                            out.print("</tr>");
-                        }
-                    }
-                %>
+                <c:forEach var="s" items="${studenti}">
+                    <tr>
+                        <td>${s.jmbag}</td>
+                        <td>${s.ime}</td>
+                        <td>${s.prezime}</td>
+                        <td>${s.godina}</td>
+                        <td>
+                            <a href="UrediStudentaServlet?jmbag=${s.jmbag}" class="btn btn-success btn-sm">Uredi</a>
 
-            </table>
-            
+                            <form method="post" onsubmit="provjeri();" action="BrisiStudentaServlet?jmbag=${s.jmbag}">
+                                <input type="submit" class="btn btn-sm btn-danger" value="Obriši"/>
+                            </form>                            
+                        </td>
+                    </tr>
+
+                </c:forEach>
+
+            </table>            
         </div>
-        
-        
+
+        <%@include file="partials/footer.jsp" %>
+        <%@include file="partials/scripts.jsp" %>
+        <script>
+            function provjeri() {
+                return confirm("Jeste sigurni da želite obrisati studenta");
+            }
+        </script>
     </body>
 </html>

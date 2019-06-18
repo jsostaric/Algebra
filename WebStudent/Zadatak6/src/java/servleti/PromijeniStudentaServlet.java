@@ -4,7 +4,6 @@ package servleti;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import modeli.Student;
 
 
-@WebServlet(name = "UrediStudentaServlet", urlPatterns = {"/UrediStudentaServlet"})
-public class UrediStudentaServlet extends HttpServlet {
+@WebServlet(name = "PromijeniStudentaServlet", urlPatterns = {"/PromijeniStudentaServlet"})
+public class PromijeniStudentaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,29 +27,24 @@ public class UrediStudentaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-         String jmbag = request.getParameter("jmbag");       
+        
+        String ime = request.getParameter("ime");
+        String prezime = request.getParameter("prezime");
+        int godina = Integer.parseInt(request.getParameter("godina_studija"));
+        String jmbag = request.getParameter("jmbag");
+        int i = Integer.parseInt(request.getParameter("i"));
         
         HttpSession session = request.getSession();
-
         List<Student> studenti;
-        studenti = (List<Student>)session.getAttribute("studenti");  
+        studenti = (List<Student>)session.getAttribute("studenti"); 
         
-        Student st = null;
-        int i;
+        Student st = new Student(ime,prezime,godina,jmbag);
         
-        for(i = 0; i < studenti.size(); i++) {
-           st = studenti.get(i);
-            if(st.getJmbag().equals(jmbag)) {
-                break;
-            }
-        }
-        
-        request.setAttribute("st", st);
-        request.setAttribute("i", ""+i);
-        getServletContext().getRequestDispatcher("/uredi.jsp").forward(request, response);
+        studenti.set(i, st);
         
         
+        session.setAttribute("studenti", studenti);
+        response.sendRedirect("izbornik.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

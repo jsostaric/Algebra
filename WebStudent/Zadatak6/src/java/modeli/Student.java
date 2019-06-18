@@ -1,7 +1,7 @@
 package modeli;
 
 public class Student {
-    String ime;
+   private String ime;
     String prezime;
     int godina;
     String jmbag;
