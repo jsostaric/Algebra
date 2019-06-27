@@ -41,10 +41,10 @@ public class IndexServlet extends HttpServlet {
             List<Film> filmovi = new ArrayList<>();
             
             String query = "select * from film";
+            ResultSet rs = db.selectUpit(query);
             
-            Statement stmt = null;
               
-            ResultSet rs = stmt.executeQuery(query);
+            
             
             while(rs.next()) {
                 Film f = new Film(
@@ -56,10 +56,8 @@ public class IndexServlet extends HttpServlet {
                 
                 filmovi.add(f);
             }
-            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-            
-            
-            
+            request.setAttribute("filmovi". filmovi);
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);    
             
         } catch (SQLException ex) {
             Logger.getLogger(IndexServlet.class.getName()).log(Level.SEVERE, null, ex);
