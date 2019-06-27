@@ -9,7 +9,7 @@
         <%@include file="partials/_nav.jsp" %>
         <h1>Uredi Film:</h1>
         <div class="container">
-            <form action="PromijeniServlet" method="post">
+            <form action="DodajServlet" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-5">
                         <label for="a">Naziv filma:</label>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary">Uredi</button>
+                <button class="btn btn-primary">Dodaj</button>
                 <a href="IndexServlet" class="btn btn-danger">Nazad</a>
 
                 <input type="hidden" name="id" value="${f.id}" />                  

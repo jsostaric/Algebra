@@ -10,8 +10,15 @@
       <div class="row">
         <h1>Popis Filmova</h1>
         <div class="col-md-2">
-            <a href="dodaj.jsp" id="dodaj" class="btn btn-sm btn-primary">Dodaj novi film</a>    
-            
+            <a href="dodaj.jsp" id="dodaj" class="btn btn-sm btn-primary">Dodaj novi film</a>            
+        </div>
+        <div class="col-md-2 offset-4">
+            <c:if test="${kosSize == 0}">
+                <a href="#" id="dodaj" class="btn btn-sm btn-warning">Kosarica</a>  <!-- <i class="fas fa-shopping-basket"></i> -->                          
+            </c:if>
+            <c:if test="${kosSize > 0}">
+                <a href="PrikaziKosaricuServlet" id="dodaj" class="btn btn-sm btn-warning">Kosarica (${kosSize})</a>  <!-- <i class="fas fa-shopping-basket"></i> -->                          
+            </c:if>
         </div>
       </div>
       
@@ -29,6 +36,7 @@
                   <td>${f.trajanje}</td>
                   <td>${f.glavniGlumci}</td>
                   <td>
+                      <a href="DodajUKosaricuServlet?id=${f.id}" class="btn btn-sm btn-primary">Dodaj u kosaricu</a>
                       <a href="UrediServlet?id=${f.id}" class="btn btn-sm btn-success">Uredi</a>
                       <a href="BrisiServlet?id=${f.id}" 
                          class="btn btn-sm btn-danger" 
