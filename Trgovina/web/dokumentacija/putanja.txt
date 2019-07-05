@@ -1,0 +1,1 @@
+mysql -uroot --default_character_set=utf8 < C:\Users\Boogie\Documents\NetBeansProjects\Trgovina\web\dokumentacija\trgovina.sql
