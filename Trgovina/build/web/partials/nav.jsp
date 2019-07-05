@@ -9,26 +9,29 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="IndexServlet">Home <span class="sr-only">(current)</span></a>
-            </li>            
-
-
+            </li>   
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <c:if test="${uid != null}">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret">Welcome ${uid.ime}</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Povijest Kupovine</a></li>
-                        <li><a href="#">Logovi</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="LogoutServlet">Odjavi se</a></li>
-                    </ul>
-                </li>                   
-            </c:if>
-            <c:if test="${uid == null}">
-                <a href="LoginServlet" class="btn btn-primary btn-spacing-top">Login</a>                            
-            </c:if>
+            <li class="nav-item dropdown">
+                <c:if test="${uid == null}">
+                    <a href="LoginServlet" class="btn btn-primary btn-spacing-top">Login</a>                            
+                </c:if>
+                <c:if test="${uid != null}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Welcome ${uid.ime}
+                    </a>
+                                              
+                </c:if>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="PrikaziPovijestServlet">Povijest Kupovine</a>
+                    <c:if test="${uid.uloga.equals('Administrator')}">
+                        <a class="dropdown-item" href="PrikaziPrijaveServlet">Logovi</a>                        
+                    </c:if>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="LogoutServlet">Odjava</a>
+                </div>
+            </li>          
         </ul>
     </div>
 </nav>

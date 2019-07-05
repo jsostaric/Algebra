@@ -1,6 +1,17 @@
 #cart {
+    position: absolute;
     color: grey;
-    font-size: 25px;
+    font-size: 30px;
+}
+
+.cartNum{
+    position: absolute;    
+    margin-top: 20px;
+    z-index: 99;
+}
+
+.cartLink{
+    margin-right: 35px;
 }
 
 .amount {
@@ -31,4 +42,9 @@
   padding-left: 1em;
   padding-right: 1em;
   border: 1px solid #ddd;
+}
+
+.jumbotron{
+    margin-top: 20px;
+    text-align: center;
 }
